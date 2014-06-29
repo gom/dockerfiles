@@ -1,0 +1,4 @@
+#!/bin/sh
+_IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $(docker ps -l -q --no-trunc))
+echo $_IP
+ssh -o StrictHostKeyChecking=no ubuntu@${_IP}
