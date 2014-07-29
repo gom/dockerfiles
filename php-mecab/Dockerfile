@@ -13,15 +13,15 @@ RUN pear channel-discover pecl.opendogs.org && \
 RUN echo 'extension=mecab.so' > /etc/php5/cli/conf.d/30-mecab.ini && \
     echo 'extension=mecab.so' > /etc/php5/apache2/conf.d/30-mecab.ini
 
-RUN /etc/init.d/apache2 restart
-
 ADD share/sample.php /usr/local/share/
 
 # sshd
 RUN mkdir -p /var/run/sshd
-RUN useradd --create-home -s /bin/bash ubuntu ; \
-    gpasswd -a ubuntu sudo ; \
-    echo "ubuntu:ubuntu" | chpasswd;
+RUN useradd --create-home -s /bin/bash ubuntu
+RUN echo "ubuntu:ubuntu" | chpasswd;
+RUN gpasswd -a ubuntu sudo
+
+RUN /etc/init.d/apache2 restart
 
 EXPOSE 22
 
