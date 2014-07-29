@@ -18,7 +18,7 @@ ADD share/sample.php /usr/local/share/
 # sshd
 RUN mkdir -p /var/run/sshd
 RUN useradd --create-home -s /bin/bash ubuntu
-RUN echo "ubuntu:ubuntu" | chpasswd;
+RUN echo "ubuntu:ubuntu" | chpasswd
 RUN gpasswd -a ubuntu sudo
 
 RUN /etc/init.d/apache2 restart
