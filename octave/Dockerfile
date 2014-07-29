@@ -8,9 +8,9 @@ RUN sed -i s/us.archive.ubuntu.com/ftp.jaist.ac.jp/ /etc/apt/sources.list && \
 
 # sshd
 RUN mkdir -p /var/run/sshd
-RUN useradd --create-home -s /bin/bash ubuntu ; \
-    gpasswd -a ubuntu sudo ; \
-    echo "ubuntu:ubuntu" | chpasswd;
+RUN useradd --create-home -s /bin/bash ubuntu
+RUN echo "ubuntu:ubuntu" | chpasswd;
+RUN gpasswd -a ubuntu sudo
 
 EXPOSE 22
 
