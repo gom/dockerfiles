@@ -4,7 +4,7 @@ MAINTAINER gom "gomgom68@gmail.com"
 # apt-get
 RUN sed -i s/us.archive.ubuntu.com/ftp.jaist.ac.jp/ /etc/apt/sources.list && \
     apt-get update && \
-    apt-get install -qq -y --force-yes openssh-server php5 php5-dev php-pear libmecab-dev mecab mecab-ipadic-utf8 
+    apt-get install -qq -y --force-yes openssh-server php5 php5-dev php-pear libmecab-dev mecab mecab-ipadic-utf8 vim git curl
 
 # php-mecab
 RUN pear channel-discover pecl.opendogs.org && \
